@@ -1,4 +1,12 @@
+import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlElement;
+import java.util.ArrayList;
+
+//root element for xml
+@XmlRootElement(name = "Frutta")
 public class Frutta{
+  
   private String nome = null;
   private Stagione stagionalita = null;
   private int eurkg = 0;
@@ -17,12 +25,17 @@ public class Frutta{
   }
 
   //setters
+  @XmlElement()
   public void setNome(String nome){
     this.nome = nome;
   }
+
+  @XmlAttribute()
   public void setStagionalita(Stagione stagionalita){
     this.stagionalita = stagionalita;
   }
+
+  @XmlAttribute()
   public void setEurkg(int eurkg){
     this.eurkg = eurkg;
   }

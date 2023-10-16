@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import jakarta.xml.bind.JAXBException;
 import com.google.gson.Gson;
 import java.io.FileReader;
 import java.io.PrintWriter;
@@ -8,7 +9,7 @@ import java.lang.reflect.Type;
 import com.google.gson.reflect.TypeToken;
 
 public class FruttaJson implements IFruttoFile {
-  public ArrayList<Frutta> readFile(String filename) throws IOException{
+  public ArrayList<Frutta> readFile(String filename) throws IOException, JAXBException{
     ArrayList<Frutta> frutti = new ArrayList<Frutta>();
     FileReader fr = new FileReader(filename);
     BufferedReader br = new BufferedReader(fr);
@@ -21,7 +22,7 @@ public class FruttaJson implements IFruttoFile {
     return frutti;
   }
 
-  public void writeFile(String filename, ArrayList<Frutta> frutti) throws IOException {
+  public void writeFile(String filename, ArrayList<Frutta> frutti) throws IOException, JAXBException {
     Gson gson = new Gson();
     String jason = gson.toJson(frutti);
     PrintWriter pr = new PrintWriter(filename);

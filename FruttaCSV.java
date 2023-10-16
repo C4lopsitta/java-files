@@ -1,11 +1,12 @@
 import java.io.BufferedReader;
+import jakarta.xml.bind.JAXBException;
 import java.io.FileReader;
 import java.io.PrintWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class FruttaCSV implements IFruttoFile {
-  public ArrayList<Frutta> readFile(String filename) throws IOException{
+  public ArrayList<Frutta> readFile(String filename) throws IOException, JAXBException {
     ArrayList<Frutta> frutti = new ArrayList<Frutta>();
 
     FileReader fileIn = new FileReader(filename);  
@@ -21,7 +22,7 @@ public class FruttaCSV implements IFruttoFile {
     return frutti;
   }
 
-  public void writeFile(String filename, ArrayList<Frutta> frutti) throws IOException {
+  public void writeFile(String filename, ArrayList<Frutta> frutti) throws IOException, JAXBException {
     PrintWriter pr = new PrintWriter(filename);
     for(Frutta f : frutti){
       pr.println(f.toCSV());
