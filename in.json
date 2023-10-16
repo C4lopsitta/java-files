@@ -1,0 +1,12 @@
+[
+  {
+    nome: "Mela",
+    stagionalita: "ESTIVA",
+    eurkg: 3
+  },
+  {
+    nome: "Pera",
+    stagionalita: "AUTUNNALE",
+    eurkg: 2
+  }
+]
