@@ -1,1 +1,6 @@
-javac -cp *.java "./:./gson-2.10.1.jar:./jakarta.activation-api-2.0.0.jar:./jakarta.xml.bind-api-3.0.0.jar:./jaxb-core-3.0.0.jar:./jaxb-impl-3.0.0.jar:./jaxb-runtime-3.0.0.jar"
+#!/bin/bash
+
+javac ./src/*.java -cp "./:./lib/*:./lib/jaxb-3.0.0/*:./lib/poi-bin-5.1.0/*:./lib/poi-bin-5.1.0/lib/*:./lib/poi-bin-5.1.0/auxiliary/*:./lib/poi-bin-5.1.0/ooxml-lib/*"
+
+mv ./src/*.class ./
+
