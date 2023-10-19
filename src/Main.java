@@ -22,32 +22,55 @@ public class Main{
       IFruttoFile inFruttaFile;
       IFruttoFile outFruttaFile;
 
-      if(inFileExtension.equals("json")) {
-        inFruttaFile = new FruttaJson();
-      } else if(inFileExtension.equals("xml")) {
-        inFruttaFile = new FruttaXML();
-      } else if(inFileExtension.equals("csv")) {
-        inFruttaFile = new FruttaCSV();
-      } else {
-        throw new IOException("File extension not supported");
+      switch (inFileExtension) {
+        case "json":
+          inFruttaFile = new FruttaJson();
+          break;
+        case "xml":
+          inFruttaFile = new FruttaXML();
+          break;
+        case "csv":
+          inFruttaFile = new FruttaCSV();
+          break;
+        case "xls":
+          inFruttaFile = new FruttaXLS();
+          break;
+        case "xlsx":
+          throw new IOException("Unsupported XLSX");
+          // break;
+        default:
+          throw new IOException("File extension not supported");
+          // break;
       }
- 
-      if(outFileExtension.equals("json")) {
-        outFruttaFile = new FruttaJson();
-      } else if(outFileExtension.equals("xml")) {
-        outFruttaFile = new FruttaXML();
-      } else if(outFileExtension.equals("csv")) {
-        outFruttaFile = new FruttaCSV();
-      } else {
-        throw new IOException("File extension not supported");
+
+      switch (outFileExtension) {
+        case "json":
+          outFruttaFile = new FruttaJson();
+          break;
+        case "xml":
+          outFruttaFile = new FruttaXML();
+          break;
+        case "csv":
+          outFruttaFile = new FruttaCSV();
+          break;
+        case "xls":
+          outFruttaFile = new FruttaXLS();
+          break;
+        case "xlsx":
+          throw new IOException("Unsupported XLSX");
+          // break;
+        default:
+          throw new IOException("File extension not supported");
+          // break;
       }
+
 
       ArrayList<Frutta> frutti = inFruttaFile.readFile(fileName);
 
-       for(Frutta f : frutti){
-         f.setEurkg((int)(f.getEurkg() * 1.1));
-         System.out.println(f);
-       }
+       // for(Frutta f : frutti){
+       //   f.setEurkg((int)(f.getEurkg() * 1.1));
+       //   System.out.println(f);
+       // }
 
       outFruttaFile.writeFile(outFileName, frutti);
 

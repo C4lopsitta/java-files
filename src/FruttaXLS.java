@@ -37,7 +37,9 @@ public class FruttaXLS implements IFruttoFile {
 
       rowNum++;
     }
-
+    for(int i = 0; i < 3; i++)
+      sheet.autoSizeColumn(i);
+  
     FileOutputStream fw = new FileOutputStream(filename);
     wb.write(fw);
       
