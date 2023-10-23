@@ -54,9 +54,7 @@ public class FruttaXLS implements IFruttoFile {
     int rowNum = 1;
     for(Frutta f : fruttiList) {
       row = sheet.createRow(rowNum);
-
       fruttaToRow(f, row);
-
       rowNum++;
     }
     for(int i = 0; i < 3; i++)
@@ -68,6 +66,9 @@ public class FruttaXLS implements IFruttoFile {
     fw.close();
   }
   
+
+
+
   private void fruttaToRow(Frutta f, Row row) {
     int colNum = 0;
     writeRow(row, f.getNome(), f.getStagionalita().toString(), Integer.toString(f.getEurkg()));
