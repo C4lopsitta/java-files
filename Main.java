@@ -22,24 +22,38 @@ public class Main{
       IFruttoFile inFruttaFile;
       IFruttoFile outFruttaFile;
 
-      if(inFileExtension.equals("json")) {
-        inFruttaFile = new FruttaJson();
-      } else if(inFileExtension.equals("xml")) {
-        inFruttaFile = new FruttaXML();
-      } else if(inFileExtension.equals("csv")) {
-        inFruttaFile = new FruttaCSV();
-      } else {
-        throw new IOException("File extension not supported");
+      switch (inFileExtension) {
+        case "json":
+          inFruttaFile = new FruttaJson();
+          break;
+
+        case "xml":
+          inFruttaFile = new FruttaXML();
+          break;
+
+        case "csv":
+          inFruttaFile = new FruttaCSV();
+          break;
+
+        default:
+          throw new IOException("Unsupported file extension");
       }
- 
-      if(outFileExtension.equals("json")) {
-        outFruttaFile = new FruttaJson();
-      } else if(outFileExtension.equals("xml")) {
-        outFruttaFile = new FruttaXML();
-      } else if(outFileExtension.equals("csv")) {
-        outFruttaFile = new FruttaCSV();
-      } else {
-        throw new IOException("File extension not supported");
+
+      switch (outFileExtension) {
+        case "json":
+          outFruttaFile = new FruttaJson();
+          break;
+
+        case "xml":
+          outFruttaFile = new FruttaXML();
+          break;
+
+        case "csv":
+          outFruttaFile = new FruttaCSV();
+          break;
+
+        default:
+          throw new IOException("Unsupported file extension");
       }
 
       ArrayList<Frutta> frutti = inFruttaFile.readFile(fileName);
