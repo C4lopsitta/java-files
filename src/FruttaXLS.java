@@ -46,12 +46,7 @@ public class FruttaXLS implements IFruttoFile {
     headerStyle.setFont(headerFont);
 
     Row row = sheet.createRow(0);
-    Cell cell = row.createCell(0);
-    cell.setCellValue("Nome");
-    cell = row.createCell(1);
-    cell.setCellValue("Stagionalita");
-    cell = row.createCell(2);
-    cell.setCellValue("Eur/Kg");
+    writeRow(row, "Nome", "Stagionalità", "Eur/Kg");
 
     for(int i = 0; i < 3; i++)
       row.getCell(i).setCellStyle(headerStyle);
@@ -75,11 +70,16 @@ public class FruttaXLS implements IFruttoFile {
   
   private void fruttaToRow(Frutta f, Row row) {
     int colNum = 0;
+    writeRow(row, f.getNome(), f.getStagionalita().toString(), Integer.toString(f.getEurkg()));
+  }
+
+  private void writeRow(Row row, String c1, String c2, String c3) {
+    int colNum = 0;
     Cell cell = row.createCell(colNum++);
-    cell.setCellValue(f.getNome());
+    cell.setCellValue(c1);
     cell = row.createCell(colNum++);
-    cell.setCellValue(f.getStagionalita().toString());
+    cell.setCellValue(c2);
     cell = row.createCell(colNum++);
-    cell.setCellValue(f.getEurkg()+"");
+    cell.setCellValue(c3);
   }
 }
