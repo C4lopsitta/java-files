@@ -1,7 +1,0 @@
-public enum Stagione{
-  ESTIVA,
-  AUTUNNALE,
-  INVERNALE,
-  PRIMAVERALE,
-  ANNUALE
-}
