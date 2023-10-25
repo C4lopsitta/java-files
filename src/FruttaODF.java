@@ -28,7 +28,7 @@ public class FruttaODF implements IFruttoFile {
       String name = (cellName != null) ? cellName.getTextValue() : "";
       Stagione stagionalita = (cellStagionalita != null) ? Stagione.valueOf(cellStagionalita.getTextValue()) : Stagione.UNDEFINED;
       int eurkg = (cellEurkg != null) ? Integer.parseInt(cellEurkg.getTextValue()) : 0;
-        
+
       frutti.add(new Frutta(name, stagionalita, eurkg));
     }
 
