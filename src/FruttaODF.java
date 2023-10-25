@@ -1,10 +1,13 @@
 import java.io.IOException;
 import jakarta.xml.bind.JAXBException;
-//TODO: Fix missing imports
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import org.jopendocument.dom.spreadsheet.SpreadSheet;
+import java.io.File;
 
 public class FruttaODF implements IFruttoFile {
   public ArrayList<Frutta> readFile(String filename) throws IOException, JAXBException {
-
+    return null;
   }
 
   public void writeFile(String filename, ArrayList<Frutta> fruttiList) throws IOException, JAXBException {
@@ -20,7 +23,7 @@ public class FruttaODF implements IFruttoFile {
       model.addRow(frutto.toRow());
     }
 
-    SpreadSheet.createSheet();
+    SpreadSheet.createEmpty(model).saveAs(new File(filename));
   }
 }
 
