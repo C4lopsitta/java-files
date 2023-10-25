@@ -6,7 +6,8 @@ public class FruttaODF implements IFruttoFile {
 
   }
 
-  public void writeFile(String filename, ArrayList<Frutta> frutti) throws IOException, JAXBException {
+  public void writeFile(String filename, ArrayList<Frutta> fruttiList) throws IOException, JAXBException {
+    Frutti frutti = new Frutti(fruttiList);
 
   }
 }
