@@ -24,5 +24,6 @@ $ ./run.sh Main inputfile outputfile
 - jaxb-core-3.0.0.jar
 - jaxb-impl-3.0.0.jar
 - jaxb-runtime-3.0.0.jar
+- jOpenDocument-1.5.jar
 - the poi-bin-5.1.0 JAR folder of stuff
 
