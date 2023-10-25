@@ -66,7 +66,7 @@ public class Frutta{
     String[] row = new String[3];
     row[0] = this.nome;
     row[1] = this.stagionalita.toString();
-    row[2] = this.Integer.toString(eurkg);
+    row[2] = Integer.toString(eurkg);
     return row;
   }
 }
