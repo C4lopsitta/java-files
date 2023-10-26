@@ -32,7 +32,7 @@ public class FruttaODF implements IFruttoFile {
       frutti.add(new Frutta(name, stagionalita, eurkg));
     }
 
-    return null;
+    return frutti;
   }
 
   public void writeFile(String filename, ArrayList<Frutta> fruttiList) throws IOException, JAXBException {
