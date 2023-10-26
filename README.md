@@ -25,10 +25,7 @@ $ ./run.sh Main inputfile outputfile
 - jaxb-core-3.0.0.jar
 - jaxb-impl-3.0.0.jar
 - jaxb-runtime-3.0.0.jar
-<<<<<<< HEAD
-=======
 - jOpenDocument-1.5.jar
->>>>>>> ODF
 - the poi-bin-5.1.0 JAR folder of stuff
-- 
+- itextpdf-5.5.13.3.jar
 
