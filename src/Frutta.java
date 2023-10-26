@@ -62,4 +62,5 @@ public class Frutta{
     return nome + ";" + stagionalita + ";" + eurkg;
   }
 
+
 }
