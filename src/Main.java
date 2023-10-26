@@ -35,6 +35,9 @@ public class Main{
         case "xlsx":
           throw new IOException("Unsupported XLSX");
           // break;
+        case "ods":
+          inFruttaFile = new FruttaODF();
+          break;
         default:
           throw new IOException("File extension not supported");
           // break;
@@ -56,6 +59,9 @@ public class Main{
         case "xlsx":
           throw new IOException("Unsupported XLSX");
           // break;
+        case "ods":
+          outFruttaFile = new FruttaODF();
+          break;
         default:
           throw new IOException("File extension not supported");
           // break;

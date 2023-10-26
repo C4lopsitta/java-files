@@ -3,5 +3,6 @@ public enum Stagione{
   AUTUNNALE,
   INVERNALE,
   PRIMAVERALE,
-  ANNUALE
+  ANNUALE,
+  UNDEFINED;
 }

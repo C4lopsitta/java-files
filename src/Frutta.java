@@ -62,4 +62,11 @@ public class Frutta{
     return nome + ";" + stagionalita + ";" + eurkg;
   }
 
+  public String[] toRow() {
+    String[] row = new String[3];
+    row[0] = this.nome;
+    row[1] = this.stagionalita.toString();
+    row[2] = Integer.toString(eurkg);
+    return row;
+  }
 }
