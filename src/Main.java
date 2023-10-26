@@ -64,6 +64,9 @@ public class Main{
         case "ods":
           outFruttaFile = new FruttaODF();
           break;
+        case "pdf":
+          outFruttaFile = new FruttaPDF();
+          break;
         default:
           throw new IOException("File extension not supported");
           // break;
