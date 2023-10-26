@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.lang.reflect.Type;
 import com.google.gson.reflect.TypeToken;
+import com.itextpdf.text.DocumentException;
 
 public class FruttaJson implements IFruttoFile {
   public ArrayList<Frutta> readFile(String filename) throws IOException, JAXBException{
@@ -22,7 +23,7 @@ public class FruttaJson implements IFruttoFile {
     return frutti;
   }
 
-  public void writeFile(String filename, ArrayList<Frutta> frutti) throws IOException, JAXBException {
+  public void writeFile(String filename, ArrayList<Frutta> frutti) throws IOException, JAXBException, DocumentException {
     Gson gson = new Gson();
     String jason = gson.toJson(frutti);
     PrintWriter pr = new PrintWriter(filename);
