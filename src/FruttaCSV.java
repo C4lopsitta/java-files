@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.PrintWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import com.itextpdf.text.DocumentException;
 
 public class FruttaCSV implements IFruttoFile {
   public ArrayList<Frutta> readFile(String filename) throws IOException, JAXBException {
@@ -22,7 +23,7 @@ public class FruttaCSV implements IFruttoFile {
     return frutti;
   }
 
-  public void writeFile(String filename, ArrayList<Frutta> frutti) throws IOException, JAXBException {
+  public void writeFile(String filename, ArrayList<Frutta> frutti) throws IOException, JAXBException, DocumentException {
     PrintWriter pr = new PrintWriter(filename);
     for(Frutta f : frutti){
       pr.println(f.toCSV());

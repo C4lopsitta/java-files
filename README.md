@@ -6,6 +6,7 @@ This is a repository for an exercise for school about reading and writing variou
 - XLS
 - XLSX
 - ODS
+- PDF (write only)
 
 ## Building and running
 Included in the repos are the `build.sh` and `run.sh` BASH scripts for easy build/run.
@@ -29,4 +30,5 @@ $ ./run.sh Main inputfile outputfile
 - jOpenDocument-1.5.jar
 >>>>>>> ODF
 - the poi-bin-5.1.0 JAR folder of stuff
+- 
 

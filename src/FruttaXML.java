@@ -8,6 +8,7 @@ import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;
 import java.io.FileInputStream;
+import com.itextpdf.text.DocumentException;
 
 public class FruttaXML implements IFruttoFile {
   public ArrayList<Frutta> readFile(String filename) throws IOException, JAXBException {
@@ -21,7 +22,7 @@ public class FruttaXML implements IFruttoFile {
     return frutti.getFrutti();
   }
 
-  public void writeFile(String filename, ArrayList<Frutta> fruttiList) throws IOException, JAXBException {
+  public void writeFile(String filename, ArrayList<Frutta> fruttiList) throws IOException, JAXBException, DocumentException {
     Frutti frutti = new Frutti(fruttiList);
 
     JAXBContext context = JAXBContext.newInstance(Frutti.class);

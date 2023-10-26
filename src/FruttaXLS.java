@@ -13,6 +13,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.*;
 import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
+import com.itextpdf.text.DocumentException;
 
 public class FruttaXLS implements IFruttoFile {
   public ArrayList<Frutta> readFile(String filename) throws IOException, JAXBException {
@@ -36,7 +37,7 @@ public class FruttaXLS implements IFruttoFile {
     return frutti;
   }
 
-  public void writeFile(String filename, ArrayList<Frutta> fruttiList) throws IOException, JAXBException {
+  public void writeFile(String filename, ArrayList<Frutta> fruttiList) throws IOException, JAXBException, DocumentException {
     Workbook wb = new HSSFWorkbook();
     Sheet sheet = wb.createSheet("Frutti");
 

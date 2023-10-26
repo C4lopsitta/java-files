@@ -1,6 +1,8 @@
 import java.io.IOException;
 import java.util.ArrayList;
 import jakarta.xml.bind.JAXBException;
+import com.itextpdf.text.DocumentException;
+import java.net.MalformedURLException;
 
 public class Main{
   public static void main(String[] args){
@@ -80,7 +82,7 @@ public class Main{
       IFruttoFile xls = new FruttaXLS();
       xls.writeFile("frutta.xls", frutti);
 
-    } catch (IOException | JAXBException e) {
+    } catch (IOException | JAXBException | DocumentException e) {
       e.printStackTrace();
     }
   }
