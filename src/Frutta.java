@@ -1,7 +1,6 @@
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlElement;
-import java.util.ArrayList;
 
 //root element for xml
 @XmlRootElement(name = "Frutta")

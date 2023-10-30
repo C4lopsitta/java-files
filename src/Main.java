@@ -2,12 +2,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import jakarta.xml.bind.JAXBException;
 import com.itextpdf.text.DocumentException;
-import java.net.MalformedURLException;
 
 public class Main{
   public static void main(String[] args){
     if(args.length != 2){
       System.out.println("USAGE: java Main inputFile outputFile\n");
+      System.exit(1);
     }
 
     String fileName = args[0];
