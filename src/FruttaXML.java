@@ -10,7 +10,7 @@ import jakarta.xml.bind.Unmarshaller;
 import java.io.FileInputStream;
 import com.itextpdf.text.DocumentException;
 
-public class FruttaXML implements IFruttoFile {
+public final class FruttaXML implements IFruttoFile {
   public ArrayList<Frutta> readFile(String filename) throws IOException, JAXBException {
     JAXBContext context = JAXBContext.newInstance(Frutti.class);
     Unmarshaller unmarshaller = context.createUnmarshaller();

@@ -15,7 +15,7 @@ import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import com.itextpdf.text.DocumentException;
 
-public class FruttaXLS implements IFruttoFile {
+public final class FruttaXLS implements IFruttoFile {
   public ArrayList<Frutta> readFile(String filename) throws IOException, JAXBException {
     ArrayList<Frutta> frutti = new ArrayList<Frutta>();
     FileInputStream fis = new FileInputStream(filename);

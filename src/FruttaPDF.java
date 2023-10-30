@@ -12,7 +12,7 @@ import com.itextpdf.text.DocumentException;
 //  DocumentException
 //  MalformedURLException
 
-public class FruttaPDF implements IFruttoFile{
+public final class FruttaPDF implements IFruttoFile{
   public ArrayList<Frutta> readFile(String filename) throws IOException, JAXBException {
     throw new IOException("Cannot read from PDF file");
   }

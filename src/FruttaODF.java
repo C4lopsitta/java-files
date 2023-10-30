@@ -7,7 +7,7 @@ import org.jopendocument.dom.spreadsheet.Sheet;
 import org.jopendocument.dom.spreadsheet.MutableCell;
 import java.io.File;
 
-public class FruttaODF implements IFruttoFile {
+public final class FruttaODF implements IFruttoFile {
   public ArrayList<Frutta> readFile(String filename) throws IOException, JAXBException {
     SpreadSheet spreadsheet = SpreadSheet.createFromFile(new File(filename));
     Sheet sheet = spreadsheet.getSheet(0);

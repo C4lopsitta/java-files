@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import com.itextpdf.text.DocumentException;
 
-public class FruttaCSV implements IFruttoFile {
+public final class FruttaCSV implements IFruttoFile {
   public ArrayList<Frutta> readFile(String filename) throws IOException, JAXBException {
     ArrayList<Frutta> frutti = new ArrayList<Frutta>();
 

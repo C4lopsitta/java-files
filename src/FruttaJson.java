@@ -9,7 +9,7 @@ import java.lang.reflect.Type;
 import com.google.gson.reflect.TypeToken;
 import com.itextpdf.text.DocumentException;
 
-public class FruttaJson implements IFruttoFile {
+public final class FruttaJson implements IFruttoFile {
   public ArrayList<Frutta> readFile(String filename) throws IOException, JAXBException{
     ArrayList<Frutta> frutti = new ArrayList<Frutta>();
     FileReader fr = new FileReader(filename);
