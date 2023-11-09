@@ -3,7 +3,7 @@ import jakarta.xml.bind.JAXBException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public final class FruttaSQL extends FruttaDAO implements IFruttoFile {
+public final class FruttaSQL extends FruttaDAOImpl implements IFruttoFile {
     @Override
     public void writeFile(String filename, ArrayList<Frutta> frutti) throws IOException, JAXBException, DocumentException {
         throw new IOException("Unsupported");

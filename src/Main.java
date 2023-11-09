@@ -17,7 +17,9 @@ public class Main{
     String outFileExtension = outFileName.substring(outFileName.lastIndexOf('.') + 1);
 
     try {
-      FruttaDAO.connectDatabase("./frutta.db");
+      FruttaDAOImpl.connectDatabase("./Frutta.db");
+
+      ArrayList<Frutta> frutti = FruttaDAOImpl.selectAll();
     } catch (Exception e) {
       e.printStackTrace();
     }
