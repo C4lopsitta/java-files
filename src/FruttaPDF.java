@@ -8,10 +8,6 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.DocumentException;
 
-// new Exceptions:
-//  DocumentException
-//  MalformedURLException
-
 public final class FruttaPDF implements IFruttoFile{
   public ArrayList<Frutta> readFile(String filename) throws IOException, JAXBException {
     throw new IOException("Cannot read from PDF file");

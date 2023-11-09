@@ -4,9 +4,9 @@ import jakarta.xml.bind.JAXBException;
 import com.itextpdf.text.DocumentException;
 
 public class Main{
-  public static void main(String[] args){
-    if(args.length != 2){
-      System.out.println("USAGE: java Main inputFile outputFile\n");
+  public static void main(String[] args) {
+    if (args.length != 2) {
+      System.out.println("USAGE: java Main inputFile outputFile\nIf using a database (SQLite) use extension \".db\"");
       System.exit(1);
     }
 
@@ -16,69 +16,42 @@ public class Main{
     String inFileExtension = fileName.substring(fileName.lastIndexOf('.') + 1);
     String outFileExtension = outFileName.substring(outFileName.lastIndexOf('.') + 1);
 
+    try {
+      FruttaDAO.connectDatabase("./frutta.db");
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+
     //try catch statement to catch possible exception in file opening
     try {
       IFruttoFile inFruttaFile;
       IFruttoFile outFruttaFile;
 
-      switch (inFileExtension) {
-        case "json":
-          inFruttaFile = new FruttaJson();
-          break;
-        case "xml":
-          inFruttaFile = new FruttaXML();
-          break;
-        case "csv":
-          inFruttaFile = new FruttaCSV();
-          break;
-        case "xls":
-          inFruttaFile = new FruttaXLS();
-          break;
-        case "xlsx":
-          throw new IOException("Unsupported XLSX");
-          // break;
-        case "ods":
-          inFruttaFile = new FruttaODF();
-          break;
-        default:
-          throw new IOException("File extension not supported");
-          // break;
-      }
+      inFruttaFile = switch (inFileExtension) {
+        case "json" -> new FruttaJson();
+        case "xml" -> new FruttaXML();
+        case "csv" -> new FruttaCSV();
+        case "xls" -> new FruttaXLS();
+        case "xlsx" -> throw new IOException("Unsupported XLSX");
+        case "ods" -> new FruttaODF();
+        case "db" -> new FruttaSQL();
+        default -> throw new IOException("File extension not supported");
+      };
 
-      switch (outFileExtension) {
-        case "json":
-          outFruttaFile = new FruttaJson();
-          break;
-        case "xml":
-          outFruttaFile = new FruttaXML();
-          break;
-        case "csv":
-          outFruttaFile = new FruttaCSV();
-          break;
-        case "xls":
-          outFruttaFile = new FruttaXLS();
-          break;
-        case "xlsx":
-          throw new IOException("Unsupported XLSX");
-          // break;
-        case "ods":
-          outFruttaFile = new FruttaODF();
-          break;
-        case "pdf":
-          outFruttaFile = new FruttaPDF();
-          break;
-        default:
-          throw new IOException("File extension not supported");
-          // break;
-      }
+      outFruttaFile = switch (outFileExtension) {
+        case "json" -> new FruttaJson();
+        case "xml" -> new FruttaXML();
+        case "csv" -> new FruttaCSV();
+        case "xls" -> new FruttaXLS();
+        case "xlsx" -> throw new IOException("Unsupported XLSX");
+        case "ods" -> new FruttaODF();
+        case "db" -> new FruttaSQL();
+        case "pdf" -> new FruttaPDF();
+        default -> throw new IOException("File extension not supported");
+      };
 
 
       ArrayList<Frutta> frutti = inFruttaFile.readFile(fileName);
-
-       // for(Frutta f : frutti){
-       //   f.setEurkg((int)(f.getEurkg() * 1.1));
-       //   System.out.println(f);
-       // }
 
       outFruttaFile.writeFile(outFileName, frutti);
 
@@ -90,3 +63,4 @@ public class Main{
     }
   }
 }
+
