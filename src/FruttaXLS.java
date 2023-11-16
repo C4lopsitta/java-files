@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import jakarta.xml.bind.JAXBException;
 import java.io.FileInputStream;
@@ -13,7 +14,7 @@ import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import com.itextpdf.text.DocumentException;
 
 public final class FruttaXLS implements IFruttoFile {
-  public ArrayList<Frutta> readFile(String filename) throws IOException, JAXBException {
+  public ArrayList<Frutta> readFile(String filename) throws IOException, JAXBException, SQLException {
     ArrayList<Frutta> frutti = new ArrayList<Frutta>();
     FileInputStream fis = new FileInputStream(filename);
 
@@ -34,7 +35,7 @@ public final class FruttaXLS implements IFruttoFile {
     return frutti;
   }
 
-  public void writeFile(String filename, ArrayList<Frutta> fruttiList) throws IOException, JAXBException, DocumentException {
+  public void writeFile(String filename, ArrayList<Frutta> fruttiList) throws IOException, JAXBException, DocumentException, SQLException {
     Workbook wb = new HSSFWorkbook();
     Sheet sheet = wb.createSheet("Frutti");
 

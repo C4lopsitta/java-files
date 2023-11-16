@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import jakarta.xml.bind.JAXBException;
 import com.itextpdf.text.DocumentException;
@@ -15,14 +16,6 @@ public class Main{
 
     String inFileExtension = fileName.substring(fileName.lastIndexOf('.') + 1);
     String outFileExtension = outFileName.substring(outFileName.lastIndexOf('.') + 1);
-
-    try {
-      FruttaDAOImpl.connectDatabase("./Frutta.db");
-
-      ArrayList<Frutta> frutti = FruttaDAOImpl.selectAll();
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
 
     //try catch statement to catch possible exception in file opening
     try {
@@ -60,7 +53,7 @@ public class Main{
       IFruttoFile xls = new FruttaXLS();
       xls.writeFile("frutta.xls", frutti);
 
-    } catch (IOException | JAXBException | DocumentException e) {
+    } catch (IOException | JAXBException | DocumentException | SQLException e) {
       e.printStackTrace();
     }
   }

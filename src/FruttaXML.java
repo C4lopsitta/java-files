@@ -1,5 +1,6 @@
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.Marshaller;
@@ -9,7 +10,7 @@ import java.io.FileInputStream;
 import com.itextpdf.text.DocumentException;
 
 public final class FruttaXML implements IFruttoFile {
-  public ArrayList<Frutta> readFile(String filename) throws IOException, JAXBException {
+  public ArrayList<Frutta> readFile(String filename) throws IOException, JAXBException, SQLException {
     JAXBContext context = JAXBContext.newInstance(Frutti.class);
     Unmarshaller unmarshaller = context.createUnmarshaller();
 
@@ -20,7 +21,7 @@ public final class FruttaXML implements IFruttoFile {
     return frutti.getFrutti();
   }
 
-  public void writeFile(String filename, ArrayList<Frutta> fruttiList) throws IOException, JAXBException, DocumentException {
+  public void writeFile(String filename, ArrayList<Frutta> fruttiList) throws IOException, JAXBException, DocumentException, SQLException {
     Frutti frutti = new Frutti(fruttiList);
 
     JAXBContext context = JAXBContext.newInstance(Frutti.class);

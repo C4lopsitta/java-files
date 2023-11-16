@@ -13,7 +13,7 @@ public class FruttaDAOImpl {
         if (connection != null)
             return;
 //            throw new IOException("Database connection has been already established");
-        Class.forName("org.sqlite.JDBC");
+
         connection = DriverManager.getConnection(generateConnectionString(pathname));
     }
 

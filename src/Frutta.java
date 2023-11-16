@@ -5,10 +5,10 @@ import jakarta.xml.bind.annotation.XmlElement;
 //root element for xml
 @XmlRootElement(name = "Frutta")
 public class Frutta{
-  
   private String nome = null;
   private Stagione stagionalita = null;
   private int eurkg = 0;
+  private int id = -1;
 
   public Frutta(){}
   public Frutta(String nome, Stagione stagionalita, int eurkg){
@@ -21,6 +21,10 @@ public class Frutta{
     this.nome = attributes[0];
     this.stagionalita = Stagione.valueOf(attributes[1]);
     this.eurkg = Integer.parseInt(attributes[2]);
+  }
+  public Frutta(int id, String nome, Stagione stagione, int eurkg) {
+    this(nome, stagione, eurkg);
+    this.id = id;
   }
 
   //setters
@@ -39,6 +43,8 @@ public class Frutta{
     this.eurkg = eurkg;
   }
 
+  public void setId(int id) { this.id = id; }
+
   //getters
   public String getNome(){
     return this.nome;
@@ -49,9 +55,10 @@ public class Frutta{
   public int getEurkg(){
     return this.eurkg;
   }
+  public int getId() { return this.id; }
 
   public String toString(){
-    return "[FRUTTO]: " +
+    return "[FRUTTO ID " + this.id + "]: " +
       "\n\tnome: " + this.nome +
       "\n\tstagionalita: " + this.stagionalita +
       "\n\teur/kg: " + this.eurkg;

@@ -1,5 +1,9 @@
 import java.io.IOException;
+
+import com.itextpdf.text.DocumentException;
 import jakarta.xml.bind.JAXBException;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import org.jopendocument.dom.spreadsheet.SpreadSheet;
@@ -8,7 +12,7 @@ import org.jopendocument.dom.spreadsheet.MutableCell;
 import java.io.File;
 
 public final class FruttaODF implements IFruttoFile {
-  public ArrayList<Frutta> readFile(String filename) throws IOException, JAXBException {
+  public ArrayList<Frutta> readFile(String filename) throws IOException, JAXBException, SQLException {
     SpreadSheet spreadsheet = SpreadSheet.createFromFile(new File(filename));
     Sheet sheet = spreadsheet.getSheet(0);
     int nRow = sheet.getRowCount();
@@ -35,7 +39,7 @@ public final class FruttaODF implements IFruttoFile {
     return frutti;
   }
 
-  public void writeFile(String filename, ArrayList<Frutta> fruttiList) throws IOException, JAXBException {
+  public void writeFile(String filename, ArrayList<Frutta> fruttiList) throws IOException, JAXBException, SQLException, DocumentException {
     DefaultTableModel model = new DefaultTableModel();
 
     String[] cols = {"Nome", "Stagionalità", "Eur/Kg"};

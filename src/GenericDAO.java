@@ -14,10 +14,14 @@ public class GenericDAO {
     static String buildConnectionURL(String dbPath) {
         return "jdbc:sqlite:" + dbPath;
     }
+    public static int create(Object obj) throws SQLException { return -1; }
+    public static Object read(int id) throws SQLException { return null; }
+    public static boolean update(Object obj) throws SQLException { return true; }
+    public static boolean delete(Object obj) throws SQLException { return true; }
+    public static ArrayList<Object> readAll() throws SQLException { return null; }
 
-    static int create(Object obj) { return -1; }
-    static Object read(int id) { return null; }
-    static boolean update(Object obj) { return true; }
-    static boolean delete(Object obj) { return true; }
-    static ArrayList<Object> readAll() { return null; }
+    public static void close() throws SQLException {
+        if(connection == null) return;
+        connection.close();
+    }
 }

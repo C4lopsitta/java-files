@@ -3,11 +3,12 @@ import jakarta.xml.bind.JAXBException;
 import java.io.FileReader;
 import java.io.PrintWriter;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import com.itextpdf.text.DocumentException;
 
 public final class FruttaCSV implements IFruttoFile {
-  public ArrayList<Frutta> readFile(String filename) throws IOException, JAXBException {
+  public ArrayList<Frutta> readFile(String filename) throws IOException, JAXBException, SQLException {
     ArrayList<Frutta> frutti = new ArrayList<Frutta>();
 
     FileReader fileIn = new FileReader(filename);  
@@ -23,7 +24,7 @@ public final class FruttaCSV implements IFruttoFile {
     return frutti;
   }
 
-  public void writeFile(String filename, ArrayList<Frutta> frutti) throws IOException, JAXBException, DocumentException {
+  public void writeFile(String filename, ArrayList<Frutta> frutti) throws IOException, JAXBException, DocumentException, SQLException {
     PrintWriter pr = new PrintWriter(filename);
     for(Frutta f : frutti){
       pr.println(f.toCSV());
