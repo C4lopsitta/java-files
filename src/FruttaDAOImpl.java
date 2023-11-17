@@ -13,7 +13,6 @@ public class FruttaDAOImpl {
         if (connection != null)
             return;
 //            throw new IOException("Database connection has been already established");
-
         connection = DriverManager.getConnection(generateConnectionString(pathname));
     }
 
